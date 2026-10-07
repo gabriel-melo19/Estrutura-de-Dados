@@ -1,4 +1,4 @@
-namespace OrderLibrary {
+namespace Estrutura_de_Dados.Ordenacao {
 
     class OrderLibrary() {
 
