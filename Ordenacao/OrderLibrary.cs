@@ -15,7 +15,6 @@ namespace Estrutura_de_Dados.Ordenacao {
                     }
                 }
             }
-    
             Console.WriteLine(string.Join(", ", v)); // O(n)
     
             // O(1) + O(n) + O(n²) + O(n) = O(n²)
