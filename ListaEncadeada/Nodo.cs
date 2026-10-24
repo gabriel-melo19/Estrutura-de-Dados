@@ -1,4 +1,4 @@
- class Nodo
+ public class Nodo
 {
     public int Valor { get; set; }
     public Nodo? Prox { get; set; }

@@ -1,6 +1,6 @@
 namespace Estrutura_de_Dados.ListaEncadeada {
 
-    class ListaEncadeada
+    public class ListaEncadeada
     {
         private Nodo? primeiro;
         private int tamanho;
@@ -35,16 +35,19 @@ namespace Estrutura_de_Dados.ListaEncadeada {
         {
             if (index < 0 || index > tamanho)
             {
-                return null;
+                return null!;
             }
             else
             {
                 var atual = primeiro;
                 for (index = 0; index <= tamanho; index++)
                 {
-                    atual = atual.Prox;
+                    if (atual is not null)
+                    {
+                        atual = atual.Prox;
+                    }
                 }
-                return atual;
+                return atual!;
             }
         }
 
@@ -64,11 +67,24 @@ namespace Estrutura_de_Dados.ListaEncadeada {
             else
             {
                 var novoNodo = new Nodo(elemento);
-                // var anterior = novoNodo.Prox - 1;    // Erro: CS0019
-                var atual = novoNodo;
+                var anterior = Get(pos - 1);
+                novoNodo.Prox = anterior.Prox;
+                anterior.Prox = novoNodo;
             }
 
             tamanho++;
+        }
+
+        public void Imprimir() {
+            var atual = primeiro;
+            Console.Write("[");
+            while (atual != null)
+            {
+                Console.Write(" " + atual.Valor + " ");
+                atual = atual.Prox;
+            }
+            Console.Write("]");
+            Console.WriteLine();
         }
     }
 }
